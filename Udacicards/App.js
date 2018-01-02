@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Platform, StatusBar, Text } from 'react-native'
+import { View, Platform, StatusBar, Text, TouchableOpacity, Button, Dimensions} from 'react-native'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import { StackNavigator } from 'react-navigation'
@@ -19,11 +19,26 @@ function UdaciStatusBar ({backgroundColor, ...props}) {
 }
 
 const Stack = StackNavigator({
-  Home: { screen: Decks },
-  NewDeck: { screen: NewDeck }
-},
-{
-  headerMode: 'none'
+
+  Home: {
+    screen: Decks,
+    navigationOptions: {
+      gesturesEnabled: true,
+      headerTitle: 'All Decks',
+    },
+  },
+  NewDeck: {
+    screen: NewDeck,
+    navigationOptions: {
+      gesturesEnabled: true,
+      headerTitle: 'New Deck',
+    },
+  }
+  },
+  {
+    navigationOptions: {
+    headerStyle: { marginTop:-42 }
+  }
 })
 
 
@@ -44,7 +59,7 @@ componentDidMount(){
     return (
         <View style={{flex: 1}}>
           <UdaciStatusBar/>
-          <Stack/>
+          <Stack screenProps={{ rootNavigation: this.props.navigation }} />
         </View>
 
     )

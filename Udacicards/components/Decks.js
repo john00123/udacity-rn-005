@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView , DeviceEventEmitter} from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView , Button} from 'react-native'
 import { AppLoading } from 'expo'
 import CardPack from './CardPack'
 import {getDecks, deleteEntry} from '../utils/api'
@@ -8,23 +8,36 @@ export default class Decks extends Component {
 
   state = {  }
 
-  componentDidMount(){
-    getDecks().then((res) => this.setState({...res}))
+  componentWillMount(){
+    load = () => {
+      getDecks().then((res) => this.setState({...res}))
+    }
   }
+
+  componentDidMount(){
+    load()
+  }
+
+
+  static navigationOptions = ({ navigation }) => {
+    const { state, setParams } = navigation;
+    return {
+      headerRight: (
+        <TouchableOpacity
+          onPress = {()=> navigation.navigate('NewDeck',
+            {onGoBack: () => this.load()})
+          }
+        >
+          <Text style = {{fontSize:40, color:'#0070E0', marginRight:5, marginBottom:8}}> + </Text>
+       </TouchableOpacity>
+      ),
+    };
+  };
 
   render() {
     const {navigation} = this.props
     return(
       <View style={{flex:1}}>
-        <TouchableOpacity
-          style={styles.addDeck}
-          onPress = {()=> navigation.navigate('NewDeck', {
-          onGoBack: () => getDecks().then((res) => this.setState({...res}))
-    })}
-        >
-          <Text style ={styles.textButton} > Add New Deck</Text>
-        </TouchableOpacity>
-
         <ScrollView style={{flex:1}}>
           <View style = {styles.page}>
             {Object.keys(this.state).map( key => <CardPack key = {key} state = {this.state[key]}/>)}
@@ -39,7 +52,7 @@ const styles = StyleSheet.create({
   page: {
     flex: 1,
     backgroundColor: '#F7F9FA',
-    padding: 20,
+    padding: 30,
     alignItems: 'center',
   },
 
