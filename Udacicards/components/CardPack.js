@@ -9,9 +9,9 @@ export default class CardPack extends Component {
     const {state} = this.props
     return(
 
-      <View style ={{alignSelf: 'stretch'}}>
+      <TouchableOpacity style ={{alignSelf: 'stretch'}}>
 
-        <TouchableOpacity style = {styles.deck}>
+        <View style = {styles.deck}>
           <View style ={styles.imageContainer}>
             <Image
               style={styles.image}
@@ -20,11 +20,11 @@ export default class CardPack extends Component {
           </View>
           <Text style= {{fontSize: 18, lineHeight:24}}>{state.name}</Text>
           <Text style={styles.subText}>{state.cards} Cards on deck</Text>
-        </TouchableOpacity>
+        </View>
 
         <View style = {[styles.deckAfter, {zIndex:1}]}/>
         <View style = {[styles.deckAfter, {marginLeft:20,  marginBottom: 30, marginRight:20}]}/>
-      </View>
+      </TouchableOpacity>
     )}
 }
 
