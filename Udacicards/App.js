@@ -6,6 +6,9 @@ import { StackNavigator } from 'react-navigation'
 import { FontAwesome, Ionicons } from '@expo/vector-icons'
 import { Constants } from 'expo'
 import Decks from './components/Decks'
+import NewDeck from './components/NewDeck'
+import {setDeck, getDecks} from './utils/api'
+import {AsyncStorage} from 'react-native'
 
 function UdaciStatusBar ({backgroundColor, ...props}) {
   return (
@@ -15,32 +18,33 @@ function UdaciStatusBar ({backgroundColor, ...props}) {
   )
 }
 
+const Stack = StackNavigator({
+  Home: { screen: Decks },
+  NewDeck: { screen: NewDeck }
+},
+{
+  headerMode: 'none'
+})
+
+
 
 export default class App extends React.Component {
 
-state = {
-  card1:{
-    Name: 'Test your whisky knowledge',
-    Cards: 30,
-    Image: '1486025402772-bc179c8dfb0e'
-  },
-  card2:{
-    Name: 'How much do you know about New York',
-    Cards: 32,
-    Image: '1503914068268-5413b35b45ad'
-  },
-  card3:{
-    Name: 'How much do you know about Architecture',
-    Cards: 32,
-    Image: '1507026050002-b9207a0e880c'
-  }
+componentWillMount(){
+  getDecks()
 }
 
+componentDidMount(){
+    getDecks().then((results)=>(
+    results ? null : setDeck()
+  ))
+}
   render() {
+    // AsyncStorage.clear()
     return (
         <View style={{flex: 1}}>
           <UdaciStatusBar/>
-          <Decks state = {this.state}/>
+          <Stack/>
         </View>
 
     )

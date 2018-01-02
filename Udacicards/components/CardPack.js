@@ -15,11 +15,11 @@ export default class CardPack extends Component {
           <View style ={styles.imageContainer}>
             <Image
               style={styles.image}
-              source={{uri: url(state.Image)}}
+              source={{uri: url(state.image)}}
             />
           </View>
-          <Text style= {{fontSize: 18, lineHeight:24}}>{state.Name}</Text>
-          <Text style={styles.subText}>{state.Cards} Cards on deck</Text>
+          <Text style= {{fontSize: 18, lineHeight:24}}>{state.name}</Text>
+          <Text style={styles.subText}>{state.cards} Cards on deck</Text>
         </TouchableOpacity>
 
         <View style = {[styles.deckAfter, {zIndex:1}]}/>
