@@ -9,7 +9,7 @@ export default class CardPack extends Component {
     const {state} = this.props
     return(
 
-      <TouchableOpacity style ={{alignSelf: 'stretch'}}>
+      <TouchableOpacity style ={{alignSelf: 'stretch', flex:1, height:'100%', paddingBottom: 40}}>
 
         <View style = {styles.deck}>
           <View style ={styles.imageContainer}>
@@ -23,7 +23,7 @@ export default class CardPack extends Component {
         </View>
 
         <View style = {[styles.deckAfter, {zIndex:1}]}/>
-        <View style = {[styles.deckAfter, {marginLeft:20,  marginBottom: 30, marginRight:20}]}/>
+
       </TouchableOpacity>
     )}
 }
@@ -54,8 +54,10 @@ const styles = StyleSheet.create({
   deck:{
     backgroundColor: 'rgb(255,255,255)',
     borderRadius: 4,
-    height: 250,
-    padding: 20,
+    flex:1,
+    width:300,
+    padding: 30,
+    marginRight: 20,
     alignSelf: 'stretch',
     zIndex:2,
     shadowRadius:3,
@@ -71,9 +73,10 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 3,
     borderBottomLeftRadius: 3,
     height: 7,
+    width:280,
     alignSelf: 'stretch',
     marginLeft:10,
-    marginRight:10,
+    marginRight:20,
     shadowRadius: 3,
     shadowOpacity: 0.3,
     shadowColor: 'rgba(0, 0, 0, 0.5)',

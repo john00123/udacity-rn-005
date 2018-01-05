@@ -11,35 +11,35 @@ export default class NewDeck extends Component {
   state = {}
 
   submit = () => {
-   const {name} = this.state
-   const {navigation} = this.props
-   submitEntry(name)
-   navigation.state.params.onGoBack()
-   navigation.goBack()
+    const {name} = this.state
+    const {navigation} = this.props
+
+    submitEntry(name)
+    navigation.state.params.onGoBack()
+    navigation.goBack()
   }
 
 
   render() {
     return(
-      <View style={{flex:1}}>
-        <View style ={{alignSelf: 'stretch'}}>
-
+      <View style={{flex:1, padding:20, paddingTop:35, paddingBottom: 60, alignItems:'center'}}>
+        <View style={styles.deck}>
+          <Text style={{fontSize: 32}}>Name your deck</Text>
           <TextInput
-            style={{height: 40}}
-            placeholder="Type here to translate!"
+            style={{height: 40, color:'#333'}}
+            placeholder="Name your Deck"
             onChangeText={(name) => this.setState({name})}
           />
 
           <TouchableOpacity
-            style={styles.addDeck}
+            style={[styles.Button,{marginTop:30}]}
             onPress = {()=> this.submit()}
           >
-            <Text style ={styles.textButton} > {JSON.stringify(this.state.name)}</Text>
+            <Text style={{color: 'white', textAlign:'center'}} > Submit</Text>
           </TouchableOpacity>
-
-          <View style = {[styles.deckAfter, {zIndex:1}]}/>
-          <View style = {[styles.deckAfter, {marginLeft:20,  marginBottom: 30, marginRight:20}]}/>
         </View>
+        <View style = {[styles.deckAfter, {zIndex:1, marginRight:15}]}/>
+
       </View>
     )
   }
@@ -65,11 +65,18 @@ const styles = StyleSheet.create({
     fontSize:16,
     lineHeight:32,
   },
+  Button:{
+    backgroundColor:'#0070E0',
+    borderRadius:4,
+    paddingTop:10,
+    paddingBottom:10,
+  },
   deck:{
     backgroundColor: 'rgb(255,255,255)',
     borderRadius: 4,
-    height: 250,
-    padding: 20,
+    flex:1,
+    padding: 30,
+    justifyContent:'center',
     alignSelf: 'stretch',
     zIndex:2,
     shadowRadius:3,

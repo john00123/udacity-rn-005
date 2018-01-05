@@ -38,8 +38,8 @@ export default class Decks extends Component {
     const {navigation} = this.props
     return(
       <View style={{flex:1}}>
-        <ScrollView style={{flex:1}}>
-          <View style = {styles.page}>
+        <ScrollView style={{flex:1}} horizontal>
+          <View style = {[styles.page,{flexDirection:'row'}]}>
             {Object.keys(this.state).map( key => <CardPack key = {key} state = {this.state[key]}/>)}
           </View>
         </ScrollView>
@@ -51,7 +51,7 @@ export default class Decks extends Component {
 const styles = StyleSheet.create({
   page: {
     flex: 1,
-    backgroundColor: '#F7F9FA',
+    // backgroundColor: '#F7F9FA',
     padding: 20,
     paddingTop:35,
     alignItems: 'center',
