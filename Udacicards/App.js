@@ -7,6 +7,9 @@ import { FontAwesome, Ionicons } from '@expo/vector-icons'
 import { Constants } from 'expo'
 import Decks from './components/Decks'
 import NewDeck from './components/NewDeck'
+import NewCard from './components/NewCard'
+import CardStart from './components/CardStart'
+import Cards from './components/Cards'
 import {setDeck, getDecks} from './utils/api'
 import {AsyncStorage} from 'react-native'
 
@@ -33,9 +36,31 @@ const Stack = StackNavigator({
       gesturesEnabled: true,
       headerTitle: 'New Deck',
     },
-  }
+  },
+  NewCard: {
+    screen: NewCard,
+    navigationOptions: {
+      gesturesEnabled: true,
+      headerTitle: 'New Card',
+    },
+  },
+  CardStart: {
+    screen: CardStart,
+    navigationOptions: {
+      gesturesEnabled: true,
+      headerTitle: null,
+    },
+  },
+  Cards: {
+    screen: Cards,
+    navigationOptions: {
+      gesturesEnabled: true,
+      headerTitle: ' Test 1',
+    },
+  },
   },
   {
+    headerMode:'screen',
     navigationOptions: {
     headerStyle: { marginTop:-42 }
   }

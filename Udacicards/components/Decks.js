@@ -4,6 +4,9 @@ import { AppLoading } from 'expo'
 import CardPack from './CardPack'
 import {getDecks, deleteEntry} from '../utils/api'
 
+
+
+
 export default class Decks extends Component {
 
   state = {  }
@@ -20,19 +23,20 @@ export default class Decks extends Component {
 
 
   static navigationOptions = ({ navigation }) => {
-    const { state, setParams } = navigation;
+    const { state, setParams } = navigation
     return {
+
       headerRight: (
         <TouchableOpacity
-          onPress = {()=> navigation.navigate('NewDeck',
-            {onGoBack: () => this.load()})
+          onPress = {()=> navigation.navigate
+            ('NewDeck', {onGoBack: () => this.load()} )
           }
         >
           <Text style = {{fontSize:40, color:'#0070E0', marginRight:5, marginBottom:8}}> + </Text>
        </TouchableOpacity>
       ),
-    };
-  };
+    }
+  }
 
   render() {
     const {navigation} = this.props
@@ -40,7 +44,14 @@ export default class Decks extends Component {
       <View style={{flex:1}}>
         <ScrollView style={{flex:1}} horizontal>
           <View style = {[styles.page,{flexDirection:'row'}]}>
-            {Object.keys(this.state).map( key => <CardPack key = {key} state = {this.state[key]}/>)}
+            {Object.keys(this.state).map( key =>
+              <CardPack
+              key = {key}
+              state = {this.state[key]}
+              navigation = {navigation}
+              />
+
+            )}
           </View>
         </ScrollView>
       </View>

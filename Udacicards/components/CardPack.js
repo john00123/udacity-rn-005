@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, Platform, TouchableOpacity, Image } from 'react-native'
+import { NavigationActions } from 'react-navigation'
+
 
 
 export default class CardPack extends Component {
@@ -7,9 +9,16 @@ export default class CardPack extends Component {
 
   render() {
     const {state} = this.props
-    return(
+    const {navigation} = this.props
 
-      <TouchableOpacity style ={{alignSelf: 'stretch', flex:1, height:'100%', paddingBottom: 40}}>
+    return(
+      <TouchableOpacity
+        style ={{alignSelf: 'stretch', justifyContent:'center', flex:1, height:'100%', paddingBottom: 40}}
+        onPress = {()=> navigation.navigate('CardStart',
+          {state: this.props.state,
+          navigation: this.props.navigation
+          })}
+       >
 
         <View style = {styles.deck}>
           <View style ={styles.imageContainer}>
@@ -18,8 +27,10 @@ export default class CardPack extends Component {
               source={{uri: url(state.image)}}
             />
           </View>
-          <Text style= {{fontSize: 18, lineHeight:24}}>{state.name}</Text>
-          <Text style={styles.subText}>{state.cards} Cards on deck</Text>
+          <Text style= {{fontSize: 18, lineHeight:24, height:50}}>
+            {state.name}
+          </Text>
+          <Text style={styles.subText}>{state.cards.length} Cards on deck</Text>
         </View>
 
         <View style = {[styles.deckAfter, {zIndex:1}]}/>
@@ -28,7 +39,7 @@ export default class CardPack extends Component {
     )}
 }
 
-const url = (value = '1509374864550-ec7bcb9c17ff') => {
+const url = (value = '1501856777435-29877ed80a3d') => {
   return `https://images.unsplash.com/photo-${value}?auto=format&fit=crop&w=3034&q=80`
 }
 
@@ -54,7 +65,7 @@ const styles = StyleSheet.create({
   deck:{
     backgroundColor: 'rgb(255,255,255)',
     borderRadius: 4,
-    flex:1,
+    height:'80%',
     width:300,
     padding: 30,
     marginRight: 20,

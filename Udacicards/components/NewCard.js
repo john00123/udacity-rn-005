@@ -1,19 +1,23 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, Platform, TouchableOpacity, Image, ScrollView , TextInput, DeviceEventEmitter} from 'react-native'
+import { View, Text, StyleSheet, Platform, TouchableOpacity, Image, ScrollView , TextInput, StatusBar} from 'react-native'
 import { NavigationActions } from 'react-navigation'
-import { submitEntry,getDecks } from '../utils/api'
+import { submitCard, getDecks } from '../utils/api'
 
 
-export default class NewDeck extends Component {
+export default class NewCard extends Component {
 
-  state = {}
+  state = {
+    question: '',
+    answer: ''
+  }
 
   submit = () => {
-    const {name} = this.state
+    const entry = this.props.navigation.state.params.state
     const {navigation} = this.props
 
-    submitEntry(name)
-    navigation.state.params.onGoBack()
+    submitCard(entry, this.state)
+    this.setState(this.state)
+    navigation.state.params.updateData(this.state);
     navigation.goBack()
   }
 
@@ -21,11 +25,20 @@ export default class NewDeck extends Component {
   render() {
     return(
       <View style={{flex:1, padding:20, paddingTop:35, paddingBottom: 60, alignItems:'center'}}>
+        <StatusBar barStyle='dark-content' />
+        <Text>{JSON.stringify(this.props.navigation.state.params.state)}</Text>
+        <Text>{JSON.stringify(this.state)}</Text>
         <View style={styles.deck}>
           <TextInput
             style={{fontSize: 32, height: 40, color:'#333'}}
-            placeholder="New Deck"
-            onChangeText={(name) => this.setState({name})}
+            placeholder="Question"
+            onChangeText={(name) => this.setState({question:(name)})}
+          />
+
+          <TextInput
+            style={{fontSize: 32, height: 40, color:'#333'}}
+            placeholder="Answer"
+            onChangeText={(name) => this.setState({answer:(name)})}
           />
 
           <TouchableOpacity
