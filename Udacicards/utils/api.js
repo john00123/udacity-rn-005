@@ -43,57 +43,57 @@ export function getDecks(){
 }
 
 const initialDeck = {
-  'Test your whisky knowledge':{
-    name: 'Test your whisky knowledge',
-    image: '1503631285924-e1544dce8b28',
+  'How much do you know about plants':{
+    name: 'How much do you know about plants',
+    image: '1499744632587-7798360ba20f',
     cards: [
       {
-        question:'What is the name of',
-        answer: 'Sia'
+        question:'What is the process a plant uses to make food?',
+        answer: 'Photosynthesis'
       },
       {
-        question:'What is the name of',
-        answer: 'Yoda'
+        question:'What type of plant looses its leaves every year?',
+        answer: 'Deciduous plants'
       },
       {
-        question:'What is the name of',
-        answer: 'Mote'
+        question:'What is one thing plants need to make food?',
+        answer: 'Sunlight'
       },
     ],
   },
-  'How much do you know about New York':{
-    name: 'How much do you know about New York',
-    image: '1503914068268-5413b35b45ad',
+  'How much do you know about fruits':{
+    name: 'How much do you know about fruits',
+    image: '1487376480913-24046456a727',
     cards: [
       {
-        question:'What is the name of',
-        answer: 'Sia'
+        question:'How many seeds are there on a strawberry?',
+        answer: '200'
       },
       {
-        question:'What is the name of',
-        answer: 'Sia'
+        question:'This is a long yellow fruit. Monkeys love to eat them!',
+        answer: 'Banana'
       },
       {
-        question:'What is the name of',
-        answer: 'Sia'
+        question:'This is a red, delicious fruit. One a day will keep the doctor away!',
+        answer: 'Apple'
       },
     ],
   },
-  'How much do you know about Architecture':{
-    name: 'How much do you know about Architecture',
-    image: '1507026050002-b9207a0e880c',
+  'How much do you know about fruits 2':{
+    name: 'How much do you know about fruits 2',
+    image: '1481349758547-36a0382e3394',
     cards: [
       {
-        question:'What is the name of',
-        answer: 'Sia'
+        question:' Some people call this red fruit a vegetable, but it is really a fruit...and very juicy!',
+        answer: 'Tomato'
       },
       {
-        question:'What is the name of',
-        answer: 'Sia'
+        question:'This fruit comes in bunches, and is most commonly red, purple or green.',
+        answer: 'Grapes'
       },
       {
-        question:'What is the name of',
-        answer: 'Sia'
+        question:'What is a dried grape called?',
+        answer: 'Rasin or Sultana'
       },
     ],
   }

@@ -23,7 +23,15 @@ export default class CardStart extends Component {
   }
 
   static navigationOptions = ({ navigation }) => ({
-
+    headerLeft:(
+      <TouchableOpacity
+      onPress = {()=> navigation.navigate('Home', {onGoBack: () => this.load()})}
+      >
+        <Text style = {{fontSize:20, color:'white', marginLeft:20}}>
+          Back
+        </Text>
+      </TouchableOpacity>
+    ),
     headerTintColor: 'white',
     headerTitleStyle: {
       color:'white'
@@ -53,7 +61,7 @@ export default class CardStart extends Component {
           <View>
           <Text style={styles.mainText}>{this.state.name}</Text>
           <Text style={styles.subText}>{this.state.cards.length} questions</Text>
-          <Text>{JSON.stringify(this.state)}</Text>
+
           </View>
         : null}
 
@@ -66,7 +74,8 @@ export default class CardStart extends Component {
         >
         <Text style={{color:'white', fontSize:18}}>Start</Text>
         </TouchableOpacity>
-        <Button color = 'white' title = 'Add Cards'
+
+        <Button color = '#0070E0' title = 'Add Cards'
           onPress = {()=> navigation.navigate('NewCard',
             {state: this.state,
             updateData:this.updateData}
@@ -117,6 +126,7 @@ const styles = StyleSheet.create({
     alignItems:'center',
     justifyContent:'center',
     marginTop:20,
+    marginBottom:20,
     borderRadius: 4,
   }
 })

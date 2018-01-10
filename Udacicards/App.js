@@ -55,7 +55,6 @@ const Stack = StackNavigator({
     screen: Cards,
     navigationOptions: {
       gesturesEnabled: true,
-      headerTitle: ' Test 1',
     },
   },
   },

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView , Button} from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView , Button, StatusBar} from 'react-native'
 import { AppLoading } from 'expo'
 import CardPack from './CardPack'
 import {getDecks, deleteEntry} from '../utils/api'
@@ -25,7 +25,7 @@ export default class Decks extends Component {
   static navigationOptions = ({ navigation }) => {
     const { state, setParams } = navigation
     return {
-
+      headerLeft:(null),
       headerRight: (
         <TouchableOpacity
           onPress = {()=> navigation.navigate
@@ -42,6 +42,7 @@ export default class Decks extends Component {
     const {navigation} = this.props
     return(
       <View style={{flex:1}}>
+      <StatusBar barStyle='dark-content' />
         <ScrollView style={{flex:1}} horizontal>
           <View style = {[styles.page,{flexDirection:'row'}]}>
             {Object.keys(this.state).map( key =>

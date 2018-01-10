@@ -26,8 +26,6 @@ export default class NewCard extends Component {
     return(
       <View style={{flex:1, padding:20, paddingTop:35, paddingBottom: 60, alignItems:'center'}}>
         <StatusBar barStyle='dark-content' />
-        <Text>{JSON.stringify(this.props.navigation.state.params.state)}</Text>
-        <Text>{JSON.stringify(this.state)}</Text>
         <View style={styles.deck}>
           <TextInput
             style={{fontSize: 32, height: 40, color:'#333'}}

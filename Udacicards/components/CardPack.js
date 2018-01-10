@@ -40,7 +40,7 @@ export default class CardPack extends Component {
 }
 
 const url = (value = '1501856777435-29877ed80a3d') => {
-  return `https://images.unsplash.com/photo-${value}?auto=format&fit=crop&w=3034&q=80`
+  return `https://images.unsplash.com/photo-${value}?auto=format&fit=crop&w=900&q=90`
 }
 
 const styles = StyleSheet.create({
