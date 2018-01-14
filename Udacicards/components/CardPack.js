@@ -7,24 +7,40 @@ import { NavigationActions } from 'react-navigation'
 export default class CardPack extends Component {
 
   state = {
-    opacity: new Animated.Value(0)
+    opacity: new Animated.Value(0),
+    width: new Animated.Value(300),
+    height: new Animated.Value(500)
   }
 
   componentDidMount(){
-    const {opacity} = this.state
+    const {opacity, width, height} = this.state
     Animated.timing(opacity,{
     toValue: 1,
     duration: 800,
   }).start()
+
+    Animated.spring(width,{
+      toValue: 330,
+      speed: 5,
+      bounciness: 10
+    }).start()
+
+    Animated.spring(height,{
+      toValue: 600,
+      speed: 5,
+      bounciness: 10
+    }).start()
+
+
   }
 
   render() {
     const {state} = this.props
     const {navigation} = this.props
-    const {opacity} = this.state
+    const {opacity, width, height} = this.state
 
     return(
-      <Animated.View style = {{opacity}}>
+      <Animated.View style = {{opacity, width, height}}>
       <TouchableOpacity
         style ={{alignSelf: 'stretch', justifyContent:'center', flex:1, height:'100%', paddingBottom: 40}}
         onPress = {()=> navigation.navigate('CardStart',

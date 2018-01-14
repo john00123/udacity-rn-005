@@ -26,7 +26,7 @@ export default class NewCard extends Component {
     return(
       <KeyboardAvoidingView
       behavior="padding"
-      style={{flex:1, padding:20, paddingTop:35, paddingBottom: 60, alignItems:'center'}}>
+      style={{flex:1, padding:20, paddingTop:35, paddingBottom: 60, alignItems:'center',marginBottom:20}}>
         <StatusBar barStyle='dark-content' />
         <View style={styles.deck}>
           <TextInput
@@ -48,7 +48,7 @@ export default class NewCard extends Component {
             <Text style={{color: 'white', textAlign:'center'}} > Submit</Text>
           </TouchableOpacity>
         </View>
-        <View style = {[styles.deckAfter, {zIndex:1, marginRight:15}]}/>
+        <View style = {[styles.deckAfter, {zIndex:1, marginRight:15,marginBottom:20}]}/>
 
       </KeyboardAvoidingView>
     )

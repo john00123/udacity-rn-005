@@ -12,6 +12,8 @@ import CardStart from './components/CardStart'
 import Cards from './components/Cards'
 import {setDeck, getDecks} from './utils/api'
 import {AsyncStorage} from 'react-native'
+import {setLocalNotification} from './utils/helper'
+
 
 function UdaciStatusBar ({backgroundColor, ...props}) {
   return (
@@ -74,6 +76,7 @@ componentWillMount(){
 }
 
 componentDidMount(){
+    setLocalNotification()
     getDecks().then((results)=>(
     results ? null : setDeck()
   ))

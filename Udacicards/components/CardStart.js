@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, StyleSheet, Button, TouchableOpacity, Image, ScrollView , TextInput, StatusBar} from 'react-native'
 import { NavigationActions } from 'react-navigation'
 import { submitEntry, getDecks } from '../utils/api'
-
+import { clearLocalNotification, setLocalNotification} from '../utils/helper'
 
 export default class CardStart extends Component {
 
@@ -16,7 +16,10 @@ export default class CardStart extends Component {
 
   updateData  = (data) => {
 
-      alert('come back status: '+JSON.stringify(data));
+      clearLocalNotification().then(setLocalNotification)
+
+      alert('Added: '+JSON.stringify(data))
+
       this.setState({
         cards: [...this.state.cards, data]
       })

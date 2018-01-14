@@ -22,8 +22,8 @@ export default class NewDeck extends Component {
     return(
       <KeyboardAvoidingView
       behavior="padding"
-      style={{flex:1, padding:20, paddingTop:35, paddingBottom: 60, alignItems:'center'}}>
-        <View style={styles.deck}>
+      style={{flex:1, padding:20, paddingTop:35, paddingBottom: 10, alignItems:'center',marginBottom:20}}>
+        <View style={[styles.deck]}>
           <TextInput
             style={{fontSize: 32, height: 40, color:'#333'}}
             placeholder="New Deck"
@@ -37,7 +37,7 @@ export default class NewDeck extends Component {
             <Text style={{color: 'white', textAlign:'center'}} > Submit</Text>
           </TouchableOpacity>
         </View>
-        <View style = {[styles.deckAfter, {zIndex:1, marginRight:15}]}/>
+        <View style = {[styles.deckAfter, {zIndex:1, marginRight:15,marginBottom:20}]}/>
 
       </KeyboardAvoidingView>
     )
