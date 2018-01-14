@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, Platform, TouchableOpacity, Image, ScrollView , TextInput, StatusBar} from 'react-native'
+import { View, Text, StyleSheet, Platform, TouchableOpacity, Image, ScrollView , TextInput, StatusBar,KeyboardAvoidingView} from 'react-native'
 import { NavigationActions } from 'react-navigation'
 import { submitCard, getDecks } from '../utils/api'
 
@@ -24,7 +24,9 @@ export default class NewCard extends Component {
 
   render() {
     return(
-      <View style={{flex:1, padding:20, paddingTop:35, paddingBottom: 60, alignItems:'center'}}>
+      <KeyboardAvoidingView
+      behavior="padding"
+      style={{flex:1, padding:20, paddingTop:35, paddingBottom: 60, alignItems:'center'}}>
         <StatusBar barStyle='dark-content' />
         <View style={styles.deck}>
           <TextInput
@@ -48,7 +50,7 @@ export default class NewCard extends Component {
         </View>
         <View style = {[styles.deckAfter, {zIndex:1, marginRight:15}]}/>
 
-      </View>
+      </KeyboardAvoidingView>
     )
   }
 }

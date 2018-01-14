@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, Platform, TouchableOpacity, Image, ScrollView , TextInput, DeviceEventEmitter} from 'react-native'
+import { View, Text, StyleSheet, Platform, TouchableOpacity, Image, ScrollView , TextInput, KeyboardAvoidingView} from 'react-native'
 import { NavigationActions } from 'react-navigation'
 import { submitEntry,getDecks } from '../utils/api'
 
@@ -20,7 +20,9 @@ export default class NewDeck extends Component {
 
   render() {
     return(
-      <View style={{flex:1, padding:20, paddingTop:35, paddingBottom: 60, alignItems:'center'}}>
+      <KeyboardAvoidingView
+      behavior="padding"
+      style={{flex:1, padding:20, paddingTop:35, paddingBottom: 60, alignItems:'center'}}>
         <View style={styles.deck}>
           <TextInput
             style={{fontSize: 32, height: 40, color:'#333'}}
@@ -37,7 +39,7 @@ export default class NewDeck extends Component {
         </View>
         <View style = {[styles.deckAfter, {zIndex:1, marginRight:15}]}/>
 
-      </View>
+      </KeyboardAvoidingView>
     )
   }
 }

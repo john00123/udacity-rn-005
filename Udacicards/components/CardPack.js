@@ -1,17 +1,30 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, Platform, TouchableOpacity, Image } from 'react-native'
+import { View, Text, StyleSheet, Platform, TouchableOpacity, Image, Animated } from 'react-native'
 import { NavigationActions } from 'react-navigation'
 
 
 
 export default class CardPack extends Component {
 
+  state = {
+    opacity: new Animated.Value(0)
+  }
+
+  componentDidMount(){
+    const {opacity} = this.state
+    Animated.timing(opacity,{
+    toValue: 1,
+    duration: 800,
+  }).start()
+  }
 
   render() {
     const {state} = this.props
     const {navigation} = this.props
+    const {opacity} = this.state
 
     return(
+      <Animated.View style = {{opacity}}>
       <TouchableOpacity
         style ={{alignSelf: 'stretch', justifyContent:'center', flex:1, height:'100%', paddingBottom: 40}}
         onPress = {()=> navigation.navigate('CardStart',
@@ -36,6 +49,7 @@ export default class CardPack extends Component {
         <View style = {[styles.deckAfter, {zIndex:1}]}/>
 
       </TouchableOpacity>
+      </Animated.View>
     )}
 }
 
