@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { View, Text, StyleSheet, Platform, TouchableOpacity, Image, Animated } from 'react-native'
 import { NavigationActions } from 'react-navigation'
 
-
-
 export default class CardPack extends Component {
 
   state = {

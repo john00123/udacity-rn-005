@@ -48,8 +48,11 @@ export default class NewCard extends Component {
             <Text style={{color: 'white', textAlign:'center'}} > Submit</Text>
           </TouchableOpacity>
         </View>
-        <View style = {[styles.deckAfter, {zIndex:1, marginRight:15,marginBottom:20}]}/>
-
+        <View style = {[styles.deckAfter,
+        { zIndex:1,
+          marginRight:15,
+          marginBottom:20}]
+        }/>
       </KeyboardAvoidingView>
     )
   }

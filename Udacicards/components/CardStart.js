@@ -10,6 +10,10 @@ export default class CardStart extends Component {
     value:1
   }
 
+  componentWillMount(){
+    return this.setState(this.props.navigation.state.params.state)
+  }
+
   componentDidMount(){
     return this.setState(this.props.navigation.state.params.state)
   }
@@ -53,6 +57,7 @@ export default class CardStart extends Component {
   render() {
     const {navigation} = this.props.navigation.state.params
     return (
+
       <ScrollView style = { styles.mainView } >
         <StatusBar barStyle = 'light-content' />
         <Image
@@ -110,7 +115,7 @@ const styles = StyleSheet.create({
     margin : -20,
     marginBottom: 20,
     flexDirection:'row',
-    height:500,
+    height:400,
   },
   mainText:{
     fontSize:32,
