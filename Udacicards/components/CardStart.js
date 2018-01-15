@@ -7,7 +7,8 @@ import { clearLocalNotification, setLocalNotification} from '../utils/helper'
 export default class CardStart extends Component {
 
   state = {
-    value:1
+    value:1,
+    cards:[]
   }
 
   componentWillMount(){
@@ -57,7 +58,7 @@ export default class CardStart extends Component {
   render() {
     const {navigation} = this.props.navigation.state.params
     return (
-
+      this.state ?
       <ScrollView style = { styles.mainView } >
         <StatusBar barStyle = 'light-content' />
         <Image
@@ -89,9 +90,8 @@ export default class CardStart extends Component {
             updateData:this.updateData}
           )}
         />
-
       </ScrollView>
-    )
+    : null)
   }
 }
 

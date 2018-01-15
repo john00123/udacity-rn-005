@@ -58,6 +58,7 @@ export default class Cards extends Component {
               style={[styles.button2, { backgroundColor:'#1D4FB0'}]}
               onPress = {()=> this.props.navigation.navigate('Home', {onGoBack: () => this.load()})}
             ><Text style= {{color:'white', fontSize:16}}>Back to Deck</Text></TouchableOpacity>
+            
           </View>
         }
 

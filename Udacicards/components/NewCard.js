@@ -45,7 +45,7 @@ export default class NewCard extends Component {
             style={[styles.Button,{marginTop:30}]}
             onPress = {()=> this.submit()}
           >
-            <Text style={{color: 'white', textAlign:'center'}} > Submit</Text>
+            <Text style={{color: 'white', textAlign:'center', fontSize:16}} > Submit</Text>
           </TouchableOpacity>
         </View>
         <View style = {[styles.deckAfter,

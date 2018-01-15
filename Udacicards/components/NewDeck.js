@@ -12,9 +12,14 @@ export default class NewDeck extends Component {
     const {name} = this.state
     const {navigation} = this.props
 
-    submitEntry(name)
+    submitEntry(name).then(
+      navigation.navigate('CardStart',
+        {state: this.state,
+        navigation: navigation
+        })
+    )
     navigation.state.params.onGoBack()
-    navigation.goBack()
+
   }
 
 
@@ -34,7 +39,7 @@ export default class NewDeck extends Component {
             style={[styles.Button,{marginTop:30}]}
             onPress = {()=> this.submit()}
           >
-            <Text style={{color: 'white', textAlign:'center'}} > Submit</Text>
+            <Text style={{color: 'white', textAlign:'center', fontSize:16}} > Submit </Text>
           </TouchableOpacity>
         </View>
         <View style = {[styles.deckAfter, {zIndex:1, marginRight:15,marginBottom:20}]}/>
